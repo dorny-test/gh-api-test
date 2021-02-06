@@ -41,6 +41,12 @@ jobs:
       env:
         DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
 
+    - name: Upload test results
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-results
+        path: src/**/TestResults/*.trx
+
     # - name: Create test report
     #   if: failure()
     #   uses: dorny/test-reporter@v1
