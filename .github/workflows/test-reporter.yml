@@ -1,0 +1,16 @@
+name: Test Report
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types:
+      - completed
+
+jobs:
+  report:
+    # strategy:
+    #   matrix:
+    #     os: ['windows-2019', 'ubuntu-20.04']
+    runs-on: 'ubuntu-20.04'
+    steps:
+    - run: echo ${{ toJSON(github) }}
