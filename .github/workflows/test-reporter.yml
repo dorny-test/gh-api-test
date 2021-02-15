@@ -8,9 +8,13 @@ on:
 
 jobs:
   report:
-    # strategy:
-    #   matrix:
-    #     os: ['windows-2019', 'ubuntu-20.04']
     runs-on: 'ubuntu-20.04'
     steps:
     - run: echo '${{ toJSON(github) }}'
+    - uses: dorny/test-reporter@artifacts-support
+      with:
+        artifact: /test-results-(.*)/
+        name: Test Report $1
+        path: '**/TestResults/*.trx'
+        reporter: dotnet-trx
+        list-tests: failed
