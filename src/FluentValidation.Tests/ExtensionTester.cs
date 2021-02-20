@@ -29,7 +29,7 @@ namespace FluentValidation.Tests {
 		public void Should_extract_member_from_member_expression() {
 			Expression<Func<Person, string>> expression = person => person.Surname;
 			var member = expression.GetMember();
-			member.Name.ShouldEqual("Surname");
+			member.Name.ShouldEqual("SurnameX");
 		}
 
 		[Fact]
