@@ -10,7 +10,6 @@ jobs:
   report:
     runs-on: 'ubuntu-20.04'
     steps:
-    - run: echo '${{ toJSON(github) }}'
     - uses: dorny/test-reporter@v1
       with:
         artifact: /test-results-(.*)/
